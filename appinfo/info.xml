@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<info>
+	<id>uploader</id>
+	<name>Uploader</name>
+	<description>HTML5 upload of large files.</description>
+	<version>1.2</version>
+	<licence>AGPL</licence>
+	<author>Frederik Orellana, Stephan Neblung</author>
+	<require>5</require>
+	<standalone>false</standalone>
+	<shipped>true</shipped>
+	<types>
+    <filesystem/>
+  </types>
+</info>
