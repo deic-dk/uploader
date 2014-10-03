@@ -126,6 +126,19 @@ var HTML5FileUpload =
                
                this.Container.appendChild(document.createElement('br'));
                
+               // Destination directory (added by Christian Brinch, Oct. 2014)
+               
+               var dst                            =    document.createElement('input'); 
+               dst.type                           =    'text';
+               dst.name                           =    'HTML5FileUpload_destdir';
+               dst.id                             =    dst.name;
+               dst.className                      =    'HTML5FileUpload_text';
+               dst.value                          =    '';
+               dst.placeholder                    =    'Destination folder'
+               this.Container.appendChild(document.createTextNode('Upload destination: /Data/'));
+               this.Container.appendChild(dst);
+               dst                                =    null;
+               
                // Uploadbutton
                
                var btn                            =    document.createElement('input');
@@ -577,6 +590,8 @@ var HTML5FileUpload =
           fd.append('fileName', Blob.name);
           fd.append('fileIndex', Index);
           fd.append('Action', 'upload');
+          // add destination as post variable
+          fd.append('destination', document.getElementById("HTML5FileUpload_destdir").value);
           
           xhr.open('POST', HTML5FileUpload.phpFile);
           xhr.upload.addEventListener('progress', HTML5FileUpload.uploadProgress, false);
