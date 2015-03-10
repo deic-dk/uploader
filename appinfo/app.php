@@ -3,7 +3,7 @@
 namespace OCA\Uploader;
 
 
-//\OCP\App::registerAdmin('uploader', 'admin/settings');
+\OCP\App::registerAdmin('uploader', 'settings');
 
 \OCP\App::addNavigationEntry( array(
 	
@@ -26,8 +26,6 @@ namespace OCA\Uploader;
 	'name' => \OC_L10N::get('uploader')->t('Uploader')
 	
 ));
-
-\OCP\Util::addscript('uploader', '3rdparty/angular/angular');
 
 $dl_dir = "/Data";
 

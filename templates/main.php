@@ -1,8 +1,3 @@
-
-{{ script('public/app') }}
-{{ style('style') }}
-{{ style('animation') }}
-
 <div id="app">
 	To upload large files, drag&amp;drop them on the box below and click 'Upload'.<br />
 	

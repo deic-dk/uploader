@@ -1,5 +1,3 @@
-{{ script('public/admin') }}
-
 <form id="apptemplate">
 	<fieldset class="personalblock">
 		<strong>Advanced App Template</strong><br />
