@@ -3,8 +3,6 @@
 namespace OCA\Uploader;
 
 
-\OCP\App::registerAdmin('uploader', 'settings');
-
 \OCP\App::addNavigationEntry( array(
 	
 	// the string under which your app will be referenced
@@ -26,27 +24,3 @@ namespace OCA\Uploader;
 	'name' => \OC_L10N::get('uploader')->t('Uploader')
 	
 ));
-
-$dl_dir = "/Data";
-
-if(\OCP\User::getUser() && strlen($dl_dir) != 0){
-	$fs = \OCP\Files::getStorage('files');
-	if(!$fs){
-		return;
-	}
-	if(!$fs->is_dir($dl_dir)){
-		$fs->mkdir($dl_dir);
-	}
-}
-
-$tmp_dir = "/Data/tmp";
-
-if(\OCP\User::getUser() && strlen($tmp_dir) != 0){
-	$fs = \OCP\Files::getStorage('files');
-	if(!$fs){
-		return;
-	}
-	if(!$fs->is_dir($tmp_dir)){
-		$fs->mkdir($tmp_dir);
-	}
-}

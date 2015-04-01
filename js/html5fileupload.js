@@ -135,10 +135,37 @@ var HTML5FileUpload =
                dst.className                      =    'HTML5FileUpload_text';
                dst.value                          =    '';
                dst.placeholder                    =    'Destination folder'
-               this.Container.appendChild(document.createTextNode('Upload destination: /Data/'));
+               this.Container.appendChild(document.createTextNode('Upload destination:'));
                this.Container.appendChild(dst);
+							 
+							 var btn                            =    document.createElement('label');
+							 btn.className                      =    'uploader_choose_download_folder btn btn-flat';
+							 btn.appendChild(document.createTextNode('browse'));
+							 this.Container.appendChild(btn);
+							 var div                            =    document.createElement('div');
+							 div.id                             =    'download_folder';
+							 div.style.display                  =    'none';
+							 this.Container.appendChild(div);
+							 div                                =    document.createElement('div');
+							 div.className                      =    'uploader_folder_dialog';
+							 div.id                             =    'dialog0';
+							 div.style.display                  =    'none';
+							 var div1                           =    document.createElement('div');
+							 div1.className                     =    'loadFolderTree';
+							 var div2                           =    document.createElement('div');
+							 div2.className                     =    'file';
+							 div2.style.display                  =    'none';
+							 div.appendChild(div1);
+							 div.appendChild(div2);
+							 this.Container.appendChild(div);
+							 
+							 this.Container.appendChild(document.createElement('br'));
                dst                                =    null;
-               
+							 btn                                =    null;
+							 div                                =    null;
+							 div1                               =    null;
+							 div2                               =    null;
+							 
                // Uploadbutton
                
                var btn                            =    document.createElement('input');
