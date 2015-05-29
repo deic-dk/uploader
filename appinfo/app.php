@@ -17,7 +17,7 @@ namespace OCA\Uploader;
 	'href' => \OCP\Util::linkToRoute('uploader_index'),
 	
 	// the icon that will be shown in the navigation
-	'icon' => \OCP\Util::imagePath('uploader', 'uploader.svg' ),
+//	'icon' => \OCP\Util::imagePath('uploader', 'uploader.svg' ),
 	
 	// the title of your application. This will be used in the
 	// navigation or on the settings page of your app
