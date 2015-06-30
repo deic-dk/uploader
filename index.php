@@ -12,7 +12,7 @@ OCP\Util::addScript('uploader', 'browse');
 \OCP\Util::addScript('uploader', 'html5fileupload_create');
 \OCP\Util::addStyle('uploader', 'html5fileupload');
 
-
+OCP\App::setActiveNavigationEntry( 'uploader' );
 
 $tpl = new OCP\Template("uploader", "main", "user");
 $tpl->printPage();
