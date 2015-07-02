@@ -24,8 +24,7 @@ var HTML5FileUpload =
      UploadInProgress                             :    false,                                       // Speichert, ob gerade Datein hochgeladen werden.
      tmpUebertragen                               :    0,                                           // Speichert die bisher von einer Datei übertragenen Bytes
      Index                                        :    0,                                           // Speichert den Index des aktuell übertragenen Teilstücks
-     maxPicSizeForPrev                            :    0,                                     		// Maximale Dateigröße des Bildes für eine Vorschau. Ist das Bild größer, wird keine Vorschau erstellt. 0 = keine Vorschau (Bei zu großen Bildern kann es dazu kommen, dass der Browser abstürzt.)
-	lang                                         :    new Array(),                                 // Speichert die Übersetzungen.
+		 lang                                         :    new Array(),                                 // Speichert die Übersetzungen.
      
      
      // Initialisieren des Uploads. (pruefen, ob der HTML5-Upload moeglich ist; abrufen der Serverkonfiguration; erstellen der benoetigten Elemente im HTML-Dokument)
@@ -98,36 +97,7 @@ var HTML5FileUpload =
                
                // Erstellen der benoetigten Elemente im HTML-Dokument.
                
-               // 'Dropbox' anzeigen.
-               
-               var div                            =    document.createElement('div');
-               div.className                      =    'HTML5FileUpload_DropBox';
-							 var div1 = div.appendChild(document.createElement('div'));
-							 div1.className                      =    'HTML5FileUpload_DropBox1';
-							 var div2 = div1.appendChild(document.createElement('div'));
-							 div2.appendChild(document.createTextNode(this.lang['drag_drop']));
-               var p                              =    document.createElement('p');
-               p.className                        =    'HTML5FileUpload_Link';
-               div.appendChild(p);
-               p                                  =    null;
-               this.Container.appendChild(div);
-               div.addEventListener('dragover', this.handleDragOver, false);
-               div.addEventListener('drop', this.handleDrop, false);
-               div                                =    null;
-               
-               // Maximale Dateigroesze anzeigen.
-               
-               var span                           =    document.createElement('span');
-               span.className                     =    'HTML5FileUpload_MaxFileSize';
-               span.appendChild(document.createTextNode(this.lang['max_part_size'] + ': ' + this.fileSize(this.maxSize) +
-							 ', ' + 	 this.lang['max_input_time'] + ': ' + this.maxTime + ' s'));
-               this.Container.appendChild(span);
-               span                               =    null;
-               
-               this.Container.appendChild(document.createElement('br'));
-               
                // Destination directory (added by Christian Brinch, Oct. 2014)
-               
                var dst                            =    document.createElement('input'); 
                dst.type                           =    'text';
                dst.name                           =    'HTML5FileUpload_destdir';
@@ -159,53 +129,86 @@ var HTML5FileUpload =
 							 div.appendChild(div2);
 							 this.Container.appendChild(div);
 							 
+							 // Uploadbutton
+							 
+							 var btn                            =    document.createElement('input');
+							 btn.type                           =    'button';
+							 btn.name                           =    'HTML5FileUpload_Upload';
+							 btn.id                             =    btn.name;
+							 btn.className                      =    'HTML5FileUpload_Button btn-primary btn-flat btn';
+							 btn.value                          =    this.lang['btn_upload'];
+							 btn.disabled                       =    true;
+							 btn.onclick                        =    this.uploadStart;
+							 this.Container.appendChild(btn);
+							 btn                                =    null;
+							 
+							 // Liste leeren und alle Variablen zuruecksetzen.
+							 
+							 btn                                =    document.createElement('input');
+							 btn.type                           =    'button';
+							 btn.name                           =    'HTML5FileUpload_Reset';
+							 btn.id                             =    btn.name;
+							 btn.className                      =    'HTML5FileUpload_Button btn-flat btn';
+							 btn.value                          =    this.lang['btn_reset'];
+							 btn.onclick                        =    this.clearList;
+							 btn.style.display                  =    'none';
+							 this.Container.appendChild(btn);
+							 btn                                =    null;
+							 
+							 // alle Uploads abbrechen
+							 
+							 btn                                =    document.createElement('input');
+							 btn.type                           =    'button';
+							 btn.name                           =    'HTML5FileUpload_Abort_All';
+							 btn.id                             =    btn.name;
+							 btn.className                      =    'HTML5FileUpload_Button btn-flat btn';
+							 btn.value                          =    this.lang['btn_abort_all'];
+							 btn.onclick                        =    this.abortAll;
+							 btn.style.display                  =    'none';
+							 this.Container.appendChild(btn);
+							 btn                                =    null;
+							 
 							 this.Container.appendChild(document.createElement('br'));
+							 
                dst                                =    null;
 							 btn                                =    null;
 							 div                                =    null;
 							 div1                               =    null;
 							 div2                               =    null;
-							 
-               // Uploadbutton
-               
-               var btn                            =    document.createElement('input');
-               btn.type                           =    'button';
-               btn.name                           =    'HTML5FileUpload_Upload';
-               btn.id                             =    btn.name;
-               btn.className                      =    'HTML5FileUpload_Button';
-               btn.value                          =    this.lang['btn_upload'];
-               btn.onclick                        =    this.uploadStart;
-               this.Container.appendChild(btn);
-               btn                                =    null;
-               
-               // alle Uploads abbrechen
-               
-               btn                                =    document.createElement('input');
-               btn.type                           =    'button';
-               btn.name                           =    'HTML5FileUpload_Abort_All';
-               btn.id                             =    btn.name;
-               btn.className                      =    'HTML5FileUpload_Button';
-               btn.value                          =    this.lang['btn_abort_all'];
-               btn.onclick                        =    this.abortAll;
-               btn.style.display                  =    'none';
-               this.Container.appendChild(btn);
-               btn                                =    null;
                
                this.Container.appendChild(document.createElement('br'));
+							 
+							 // 'Dropbox' anzeigen.
+							 
+							 var div                            =    document.createElement('div');
+							 div.className                      =    'HTML5FileUpload_DropBox';
+							 var div1 = div.appendChild(document.createElement('div'));
+							 div1.className                      =    'HTML5FileUpload_DropBox1';
+							 var div2 = div1.appendChild(document.createElement('div'));
+							 div2.appendChild(document.createTextNode(this.lang['drag_drop']));
+							 var p                              =    document.createElement('p');
+							 p.className                        =    'HTML5FileUpload_Link';
+							 div.appendChild(p);
+							 p                                  =    null;
+							 this.Container.appendChild(div);
+							 div.addEventListener('dragover', this.handleDragOver, false);
+							 div.addEventListener('drop', this.handleDrop, false);
+							 div                                =    null;
+							 
 							 this.Container.appendChild(document.createElement('br'));
 							 
-               // Liste leeren und alle Variablen zuruecksetzen.
-               
-               btn                                =    document.createElement('input');
-               btn.type                           =    'button';
-               btn.name                           =    'HTML5FileUpload_Reset';
-               btn.id                             =    btn.name;
-               btn.className                      =    'HTML5FileUpload_Button';
-               btn.value                          =    this.lang['btn_reset'];
-               btn.onclick                        =    this.clearList;
-               btn.style.display                  =    'none';
-               this.Container.appendChild(btn);
-               btn                                =    null;
+							 // Maximale Dateigroesze anzeigen.
+							 
+							 var span                           =    document.createElement('span');
+							 span.className                     =    'HTML5FileUpload_MaxFileSize';
+							 span.appendChild(document.createTextNode(this.lang['max_part_size'] + ': ' + this.fileSize(this.maxSize) +
+							 ', ' + 	 this.lang['max_input_time'] + ': ' + this.maxTime + ' s'));
+							 this.Container.appendChild(span);
+							 span                               =    null;
+							 
+							 this.Container.appendChild(document.createElement('br'));
+							 
+							 this.Container.appendChild(document.createElement('br'));
                
                }
           
@@ -321,6 +324,8 @@ var HTML5FileUpload =
           evt.stopPropagation();
           evt.preventDefault();
           
+					document.getElementById('HTML5FileUpload_Upload').disabled = false;
+					document.getElementById('HTML5FileUpload_Reset').style.display = 'inline';
           // Wenn ein Upload aktiv ist, werden keine neuen Dateien angenommen.
           
           if (this.UploadInProgress)
@@ -342,6 +347,7 @@ var HTML5FileUpload =
                {
                
                tbl                                =    document.getElementById('HTML5FileUpload_Tbl');
+							 tableBody                          =    document.getElementById('HTML5FileUpload_Tbl_body');
                
                }
           else
@@ -349,15 +355,41 @@ var HTML5FileUpload =
                
                tbl                                =    document.createElement('table');
                tbl.id                             =    'HTML5FileUpload_Tbl';
-               tbl.className                      =    tbl.id;
+               tbl.className                      =    tbl.id+' panel';
                HTML5FileUpload.Container.appendChild(tbl);
+					
+							 var tr                                  =    null;
+							 var td                                  =    null;
+							 var span                                =    null;
+							 var th                                  =    null;
+							
+							
+							 var tableHead                           =   document.createElement('thead');
+							 tableHead.className                     =   'panel-heading';
+							 tr                                      =   document.createElement('tr');
+							 th                                      =   document.createElement('th');
+							 th.className                            =   'col-sm-1'
+							 columnTitle                             =   document.createElement('span');
+							 columnTitle.className                   =   'columntitle'
+							 columnTitle.innerHTML                   =   '<span>File name</span>';
+							 th.appendChild(columnTitle);
+							 tr.appendChild(th);
+							 th                                      =   document.createElement('th');
+							 th.innerHTML                            =   'Upload progress';
+							 th.className                            =   'col-sm-2'
+							 tr.appendChild(th);
+							 tableHead.appendChild(tr);
+							 tbl.appendChild(tableHead);
+							 tr                                      =    null;
+							 th                                      =    null;
+							 var tableBody                           =   document.createElement('tbody');
+							 tableBody.id                            =   'HTML5FileUpload_Tbl_body'
+							 tbl.appendChild(tableBody);
+					
                
                }
                
-          var tr                                  =    null;
-          var td                                  =    null;
-          var span                                =    null;
-          
+
           // Dateiinformationen in der Tabelle darstellen.
                
           for (i = 0; i < fl.length; i++)
@@ -435,50 +467,13 @@ var HTML5FileUpload =
                
                tr.appendChild(td);
                td                                 =    null;
-               
-               // Vorschaubild, falls möglich
-               
-               td                                 =    document.createElement('td');
-               td.className                       =    'HTML5FileUpload_PicPreview_td';
-               td.id                              =    'HTML5FileUpload_PicPreview_td_' + fl[i].name;
-               
-               if (fl[i].type.match('image.*') && fl[i].size < HTML5FileUpload.maxPicSizeForPrev) {
-                    
-                    var reader                    =    new FileReader();
-                    reader.onload                 =    (function(file) {
-                         return function(e) {
                               
-                              var span            =    document.createElement('span');
-                              span.innerHTML      =    ['<img class="HTML5FileUpload_PicPreview" src="', e.target.result,
-                                                       '" title="', file.name, '" />'].join('');
-                              document.getElementById('HTML5FileUpload_PicPreview_td_' + file.name).insertBefore(span, null);
-                              
-                              };
-                         })(fl[i]);
-                         
-                    reader.readAsDataURL(fl[i]);
-                    
-                    }
-                    
-               tr.appendChild(td);
-               td                                 =    null;
-               
-               tbl.appendChild(tr);
+							 tableBody.appendChild(tr);
                tr                                 =    null;
                
                HTML5FileUpload.Files[HTML5FileUpload.Files.length]    =    fl[i];
                
                }
-               
-               var tr                             =    tbl.getElementsByTagName('tr');
-               var td                             =    tr[tr.length-1].firstChild;
-               
-               while (td != null) {
-                    
-                    td.className                  +=   ' HTML5FileUpload_last_td';
-                    td                            =    td.nextSibling;
-                    
-                    }
                
           },
           
@@ -517,7 +512,7 @@ var HTML5FileUpload =
      
      uploadStart                                  :    function()
           {
-         
+
           if (HTML5FileUpload.UploadInProgress || HTML5FileUpload.Files.length < 1)
                {
                
@@ -530,9 +525,9 @@ var HTML5FileUpload =
                }
                
           HTML5FileUpload.UploadInProgress        =    true;
-          document.getElementById('HTML5FileUpload_Upload').className           =    'HTML5FileUpload_Button_inactive';
-          document.getElementById('HTML5FileUpload_Abort_All').style.display    =    'inline';
-          
+					document.getElementById('HTML5FileUpload_Upload').disabled = true;
+					document.getElementById('HTML5FileUpload_Reset').style.display    =    'none';
+					document.getElementById('HTML5FileUpload_Abort_All').style.display    =    'inline';
           HTML5FileUpload.uploadFiles();
           
           },
@@ -712,6 +707,8 @@ var HTML5FileUpload =
                     }
 
                //alert(HTML5FileUpload.lang['done']);
+               
+               HTML5FileUpload.UploadInProgress        =    false;
      
                }
           
@@ -802,6 +799,7 @@ var HTML5FileUpload =
           HTML5FileUpload.Files                   =    new Array();
           document.getElementById('HTML5FileUpload_Abort_All').style.display                                                                =    'none';
           document.getElementById('HTML5FileUpload_Reset').style.display                                                                    =    'inline';
+					HTML5FileUpload.UploadInProgress        =    false;
           
           },
           
@@ -815,8 +813,8 @@ var HTML5FileUpload =
           HTML5FileUpload.Files                   =    new Array();
           HTML5FileUpload.UploadInProgress        =    false;
           HTML5FileUpload.Counter                 =    0;
-          document.getElementById('HTML5FileUpload_Upload').className                                                                       =    'HTML5FileUpload_Button';
-          document.getElementById('HTML5FileUpload_Reset').style.display                                                                    =    'none';    
+					document.getElementById('HTML5FileUpload_Upload').disabled = true;
+					document.getElementById('HTML5FileUpload_Reset').style.display                                                                    =    'none';    
           
           }
      

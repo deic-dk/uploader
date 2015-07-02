@@ -14,5 +14,6 @@ OCP\Util::addScript('uploader', 'browse');
 
 OCP\App::setActiveNavigationEntry( 'uploader' );
 
+
 $tpl = new OCP\Template("uploader", "main", "user");
 $tpl->printPage();
