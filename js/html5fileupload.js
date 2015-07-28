@@ -104,8 +104,8 @@ var HTML5FileUpload =
                dst.id                             =    dst.name;
                dst.className                      =    'HTML5FileUpload_text';
                dst.value                          =    '';
-               dst.placeholder                    =    'Destination folder'
-               this.Container.appendChild(document.createTextNode('Upload destination:'));
+               dst.placeholder                    =    'folder'
+               this.Container.appendChild(document.createTextNode('Upload destination: '));
                this.Container.appendChild(dst);
 							 
 							 var btn                            =    document.createElement('label');
