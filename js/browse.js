@@ -1,7 +1,7 @@
  function chooseDownloadFolder(folder){
 	 $('[name=HTML5FileUpload_destdir]').val(folder)
  }
- 
+
  function stripTrailingSlash(str) {
 	 if(str.substr(-1)=='/') {
 		 str = str.substr(0, str.length - 1);
@@ -11,16 +11,16 @@
 	 }
 	 return str;
  }
- 
+
  function stripLeadingSlash(str) {
 	 if(str.substr(0,1)=='/') {
 		 str = str.substr(1, str.length-1);
 	 }
 	 return str;
  }
- 
+
  var choose_download_folder_dialog = null;
- 
+
  function createBrowser(){
 	if(choose_download_folder_dialog != null){
 		return false;
@@ -43,7 +43,7 @@
 	}
 	});
  }
- 
+
  $(document).ready(function(){
 	 $('.uploader_choose_download_folder').live('click', function(){
 		 createBrowser();
@@ -71,6 +71,5 @@
 		 }
 	 });
  });
- 
+
  });
- 

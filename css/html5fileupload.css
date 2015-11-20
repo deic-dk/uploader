@@ -1,13 +1,13 @@
 .HTML5FileUpload_MaxFileSize
      {
-     
+
      font-size                                    :    0.8em;
-     
+
      }
-     
+
 .HTML5FileUpload_DropBox
      {
-     
+
      border                                       :    2px dashed rgba(0,0,0,0.2);
      width                                        :    400px;
      height                                       :    80px;
@@ -29,16 +29,16 @@
 			 display: table-cell;
 			 vertical-align: middle;
 		 }
-		 
+
 		 .HTML5FileUpload_Link a
      {
-     
+
      color                                        :    #000000;
      font-size                                    :    10px;
      font-family                                  :    'Verdana';
-          
+
      }
-     
+
 .HTML5FileUpload_Tbl
      {
 		 border                                       :    1px solid rgba(0,0,0,0.2);
@@ -46,56 +46,56 @@
      border-radius                                :    10px;
      overflow                                     :    hidden;
      border-spacing                               :    0px;
-     
+
      }
-     
+
 .HTML5FileUpload_Tbl td
      {
-     
+
 			 border-bottom                                :    1px solid rgba(0,0,0,0.2);
      padding                                      :    5px;
      -moz-transition                              :    all 0.5s;
      -webkit-transition                           :    all 0.5s;
      -o-transition                                :    all 0.5s;
      transition                                   :    all 0.5s;
-     
-     }
-     
-.HTML5FileUpload_Tbl td .FileSize
-     {
-     
-     font-size                                    :    10px;
-     
+
      }
 
-     
+.HTML5FileUpload_Tbl td .FileSize
+     {
+
+     font-size                                    :    10px;
+
+     }
+
+
 .HTML5FileUpload_Complete
      {
-     
+
 			 background-color                           :    rgba(0, 0, 0, 0.4);
      opacity                                      :    0.5;
      -moz-transition                              :    all 2s;
      -webkit-transition                           :    all 2s;
      -o-transition                                :    all 2s;
      transition                                   :    all 2s;
-     
+
      }
-     
+
 .HTML5FileUpload_Progress_Aborted
      {
-     
+
      background-color                             :    #FF0000;
      opacity                                      :    0.5;
      -moz-transition                              :    all 2s;
      -webkit-transition                           :    all 2s;
      -o-transition                                :    all 2s;
      transition                                   :    all 2s;
-     
+
      }
-          
+
 .HTML5FileUpload_Cancel
      {
-          
+
      float                                        :    right;
      padding-left                                 :    5px;
 		 margin                                       :    10px 20px 0 0;
@@ -105,51 +105,51 @@
      height                                       :    16px;
      background-image                             :    url('../img/cancel.png');
      background-repeat                            :    no-repeat;
-          
+
      }
-          
+
 tr:hover .HTML5FileUpload_Cancel
      {
-          
+
      visibility                                   :    visible;
-          
+
      }
-     
+
 /*
 
      Progressbar und Prozentanzeige
-     
+
 */
 
 .HTML5FileUpload_ProgressContainer
      {
-     
+
      width                                        :    200px;
      float                                        :    left;
      border                                       :    1px solid black;
      background-color                             :    #FFFFFF;
-     height                                       :    13px;          
+     height                                       :    13px;
      border-radius                                :    1px;
 		 margin                                          : 10px;
      /*box-shadow                                   :    2px 2px 2px #A8A8A8;*/
-     
+
      }
-     
+
 .HTML5FileUpload_Progress
      {
 			 background-color                             :    rgba(0,0,0,0.2);
-     
+
      height                                       :    14px;
-     width                                        :    0px;       
+     width                                        :    0px;
      position                                     :    relative;
-     top                                          :    0px;      
+     top                                          :    0px;
      border-radius                                :    5px;
-     
+
      }
-     
+
 .HTML5FileUpload_Percent
      {
-     
+
      position                                     :    relative;
      width                                        :    100%;
      height                                       :    100%;
@@ -158,60 +158,60 @@ tr:hover .HTML5FileUpload_Cancel
      background                                   :    transparent;
      top                                          :    -16px;
      z-index                                      :    80;
-     
+
      }
-     
+
 /*
 
      Bildvorschau
-     
+
 */
 
 .HTML5FileUpload_PicPreview_td img
      {
-     
+
      /*
-     
+
           Aenderungen animieren
-          
+
      */
-     
+
      -moz-transition                              :    all 1s;
      -webkit-transition                           :    all 1s;
      -o-transition                                :    all 1s;
      transition                                   :    all 1s;
-     
+
      max-width                                    :    150px;
      max-height                                   :    150px;
      border                                       :    1px solid black;
-     
+
      }
-     
+
 .HTML5FileUpload_PicPreview_td img:hover
      {
-     
+
      /*
-     
+
           Aenderungen animieren
-          
+
      */
-     
+
      -moz-transition                              :    all 5s;
      -webkit-transition                           :    all 5s;
      -o-transition                                :    all 5s;
      transition                                   :    all 5s;
-     
+
      max-width                                    :    10000px;
      max-height                                   :    10000px;
-     
+
      }
-     
+
 .HTML5FileUpload_Button
 		{
 			float: right;
 		}
-		
-		
+
+
 table th .columntitle {
 	display: block;
 	padding: 15px;
@@ -223,3 +223,4 @@ table th .columntitle {
 
 #content.app-uploader {
 	margin-top: 30px;
+}
