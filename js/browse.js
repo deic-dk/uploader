@@ -26,7 +26,8 @@
 		return false;
 	}
 	choose_download_folder_dialog = $("div.uploader_folder_dialog").dialog({//create dialog, but keep it closed
-	title: "Choose download folder",
+	title: "Choose destination folder",
+	dialogClass: "no-close",
 	autoOpen: false,
 	height: 440,
 	width: 620,
