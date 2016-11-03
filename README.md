@@ -1,9 +1,9 @@
 uploader
 ========
 
-ownCloud app for uploading large files to ownCloud server
+ownCloud app for uploading large files with js chunking on the client-side.
 
-This is a modified version of "Large File Upload 1.2" by Stephan Neblung.
+Fork of of "Large File Upload 1.2" by Stephan Neblung.
 
 http://apps.owncloud.com/content/show.php/Large+File+Upload?content=159291
 
