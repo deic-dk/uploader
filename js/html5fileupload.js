@@ -104,13 +104,13 @@ var HTML5FileUpload =
                dst.id                             =    dst.name;
                dst.className                      =    'HTML5FileUpload_text';
                dst.value                          =    '';
-               dst.placeholder                    =    'folder'
-               this.Container.appendChild(document.createTextNode('Upload destination: '));
+               dst.placeholder                    =    t('uploader', 'Folder');
+               this.Container.appendChild(document.createTextNode(t('uploader', 'Upload destination')+': '));
                this.Container.appendChild(dst);
 
 							 var btn                            =    document.createElement('label');
 							 btn.className                      =    'uploader_choose_download_folder btn btn-flat';
-							 btn.appendChild(document.createTextNode('browse'));
+							 btn.appendChild(document.createTextNode(t('uploader', 'Browse')));
 							 this.Container.appendChild(btn);
 							 var div                            =    document.createElement('div');
 							 div.id                             =    'download_folder';
@@ -371,11 +371,11 @@ var HTML5FileUpload =
 							 th.className                            =   'col-sm-1'
 							 columnTitle                             =   document.createElement('span');
 							 columnTitle.className                   =   'columntitle'
-							 columnTitle.innerHTML                   =   '<span>File name</span>';
+							 columnTitle.innerHTML                   =   '<span>'+t('uploader', 'Filename')+'</span>';
 							 th.appendChild(columnTitle);
 							 tr.appendChild(th);
 							 th                                      =   document.createElement('th');
-							 th.innerHTML                            =   'Upload progress';
+							 th.innerHTML                            =   t('uploader', 'Upload progress');
 							 th.className                            =   'col-sm-2'
 							 tr.appendChild(th);
 							 tableHead.appendChild(tr);

@@ -25,23 +25,23 @@
 	if(choose_download_folder_dialog != null){
 		return false;
 	}
+	var buttons = {};
+	buttons[t("files_picocms", "Choose")] = function() {
+		folder = stripTrailingSlash($('#download_folder').text());
+		chooseDownloadFolder(folder);
+		choose_download_folder_dialog.dialog("close");
+ 	};
+ 	buttons[t("files_picocms", "Cancel")] = function() {
+		choose_download_folder_dialog.dialog("close");
+	};
 	choose_download_folder_dialog = $("div.uploader_folder_dialog").dialog({//create dialog, but keep it closed
-	title: "Choose destination folder",
+	title: t("uploader", "Choose destination folder"),
 	dialogClass: "no-close",
 	autoOpen: false,
 	height: 440,
 	width: 620,
 	modal: true,
-	buttons: {
-		"Choose": function() {
-			folder = stripTrailingSlash($('#download_folder').text());
-			chooseDownloadFolder(folder);
-			choose_download_folder_dialog.dialog("close");
-		},
-		"Cancel": function() {
-			choose_download_folder_dialog.dialog("close");
-		}
-	}
+	buttons: buttons
 	});
  }
 
