@@ -107,6 +107,7 @@ var HTML5FileUpload =
                dst.placeholder                    =    t('uploader', 'Folder');
                this.Container.appendChild(document.createTextNode(t('uploader', 'Upload destination')+': '));
                this.Container.appendChild(dst);
+               $('#group_folder').appendTo( this.Container);
 
 							 var btn                            =    document.createElement('label');
 							 btn.className                      =    'uploader_choose_download_folder btn btn-flat';
@@ -115,6 +116,7 @@ var HTML5FileUpload =
 							 var div                            =    document.createElement('div');
 							 div.id                             =    'download_folder';
 							 div.style.display                  =    'none';
+							 div.setAttribute('group', '');
 							 this.Container.appendChild(div);
 							 div                                =    document.createElement('div');
 							 div.className                      =    'uploader_folder_dialog';
@@ -614,6 +616,7 @@ var HTML5FileUpload =
           fd.append('Action', 'upload');
           // add destination as post variable
           fd.append('destination', document.getElementById("HTML5FileUpload_destdir").value);
+          fd.append('group', $('#download_folder').attr('group'));
 
           xhr.open('POST', HTML5FileUpload.phpFile);
           xhr.upload.addEventListener('progress', HTML5FileUpload.uploadProgress, false);

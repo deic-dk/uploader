@@ -1,4 +1,5 @@
  function chooseDownloadFolder(folder){
+	 $('#download_folder').attr('group', group);
 	 $('[name=HTML5FileUpload_destdir]').val(folder)
  }
 
@@ -26,12 +27,12 @@
 		return false;
 	}
 	var buttons = {};
-	buttons[t("files_picocms", "Choose")] = function() {
+	buttons[t("uploader", "Choose")] = function() {
 		folder = stripTrailingSlash($('#download_folder').text());
 		chooseDownloadFolder(folder);
 		choose_download_folder_dialog.dialog("close");
  	};
- 	buttons[t("files_picocms", "Cancel")] = function() {
+ 	buttons[t("uploader", "Cancel")] = function() {
 		choose_download_folder_dialog.dialog("close");
 	};
 	choose_download_folder_dialog = $("div.uploader_folder_dialog").dialog({//create dialog, but keep it closed
@@ -51,6 +52,7 @@
 		 choose_download_folder_dialog.dialog('open');
 		 choose_download_folder_dialog.show();
 		 folder = stripLeadingSlash($('[name=HTML5FileUpload_destdir]').val());
+		 group = $('#group_folder').val();
 		 $('.uploader_folder_dialog div.loadFolderTree').fileTree({
 			 //root: '/',
 			 script: '../../apps/chooser/jqueryFileTree.php',
@@ -58,7 +60,8 @@
 			 selectFile: false,
 			 selectFolder: true,
 			 folder: folder,
-			 file: ''
+			 file: '',
+			group: group
 		 },
 		 // single-click
 		 function(file) {

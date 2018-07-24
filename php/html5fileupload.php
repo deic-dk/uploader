@@ -2,7 +2,10 @@
 
      $view = new \OC\Files\View('/');
      // Add custom path to $pathToFiles
-     $pathToFiles                                 =    $view->getLocalFolder('/'.OCP\User::getUser().'/files/'.(isset($_POST['destination'])?$_POST['destination']:'').'/');      // Den Slash am Ende nicht vergessen!
+     $pathToFiles                                 =
+     	$view->getLocalFolder(
+     		'/'.OCP\User::getUser().(empty($_POST['group'])?'/files/':'/user_group_admin/'.$_POST['group'].'/').
+     			(isset($_POST['destination'])?$_POST['destination'].'/':''));      // Den Slash am Ende nicht vergessen!
 	   $pathToFilesTmp                              =    $view->getLocalFolder('/'.OCP\User::getUser().'/cache/uploader/');      	// Den Slash am Ende nicht vergessen!
      //$maxSize                                     =    4194304;            // 4 MB Maximum, sonst kann es zum Browser-crash führen
      $allowedFileTypes                            =    array();    	// Erlaubte MIME-Types.

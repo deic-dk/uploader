@@ -14,6 +14,11 @@ OCP\Util::addScript('uploader', 'browse');
 
 OCP\App::setActiveNavigationEntry( 'uploader' );
 
-
+$user_id = OCP\USER::getUser();
 $tpl = new OCP\Template("uploader", "main", "user");
+if(OCP\App::isEnabled('user_group_admin')){
+	$groups = OC_User_Group_Admin_Util::getUserGroups($user_id, false, false, true);
+	$tpl->assign('member_groups', $groups);
+}
+
 $tpl->printPage();
