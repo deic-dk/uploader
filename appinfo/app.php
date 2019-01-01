@@ -21,6 +21,6 @@ namespace OCA\Uploader;
 	
 	// the title of your application. This will be used in the
 	// navigation or on the settings page of your app
-	'name' => \OC_L10N::get('uploader')->t('Uploader')
+	'name' => \OC_L10N::get('uploader')->t('Upload')
 	
 ));
