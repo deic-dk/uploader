@@ -18,9 +18,9 @@
                
                $iniSize                           =    ini_get('upload_max_filesize');
                $entitys                           =    array(0 => 'B', 1 => 'K', 2 => 'M', 3 => 'G');
-               $entity                            =    substr($iniSize, count($iniSize) - 2, 1);
+               $entity                            =    substr($iniSize, strlen($iniSize) - 2, 1);
                
-               $size                              =    substr($iniSize, 0, count($iniSize) - 2);
+               $size                              =    substr($iniSize, 0, strlen($iniSize) - 2);
                $i                                 =    0;
                
                while($entitys[$i] != $entity)
