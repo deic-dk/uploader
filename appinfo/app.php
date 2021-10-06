@@ -11,7 +11,7 @@ namespace OCA\Uploader;
 
 	// sorting weight for the navigation. The higher the number, the higher
 	// will it be listed in the navigation
-	'order' => 74,
+	'order' => 29,
 	
 	// the route that will be shown on startup
 	'href' => \OCP\Util::linkToRoute('uploader_index'),
