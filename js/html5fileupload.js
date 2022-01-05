@@ -616,7 +616,7 @@ var HTML5FileUpload =
           fd.append('Action', 'upload');
           // add destination as post variable
           fd.append('destination', document.getElementById("HTML5FileUpload_destdir").value);
-          fd.append('group', $('#download_folder').attr('group'));
+          fd.append('group', $('#group_folder').val()/*$('#download_folder').attr('group')*/);
 
           xhr.open('POST', HTML5FileUpload.phpFile);
           xhr.upload.addEventListener('progress', HTML5FileUpload.uploadProgress, false);
