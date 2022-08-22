@@ -8,8 +8,8 @@
 		<btn_remove>Remove</btn_remove>
 		<drag_drop>Drop files here</drag_drop>
 		<done>Upload done</done>
-		<max_part_size>Max file-size</max_part_size>
-		<max_input_time>Max upload time</max_input_time>
+		<max_part_size>Max file chunk size</max_part_size>
+		<max_input_time>Max upload time per chunk</max_input_time>
 		<notification_title>ownCloud - Large File Upload</notification_title>
 		<notification_body_done>Upload done</notification_body_done>
 		<error_no_html5>Your Browser did not support HTML5-Fileuploads!</error_no_html5>

@@ -8,7 +8,7 @@
 		<btn_remove>Fjern</btn_remove>
 		<drag_drop>Drop filer her</drag_drop>
 		<done>Upload færdig</done>
-		<max_part_size>Maks. filstørrelse</max_part_size>
+		<max_part_size>Maks. fil-stykke-størrelse</max_part_size>
 		<max_input_time>Maks. upload-tid</max_input_time>
 		<notification_title>Upload af store filer</notification_title>
 		<notification_body_done>Upload afsluttet</notification_body_done>

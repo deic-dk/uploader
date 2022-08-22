@@ -16,7 +16,8 @@ var HTML5FileUpload =
      Counter                                      :    0,                                           // Zaehler fuer die Datei, die aktuell hochgeladen wird.
      Files                                        :    new Array(),                                 // Liste der zu uebertragenden Dateien.
      phpFile                                      :    'php/html5fileupload.php',                   // PHP-Datei, welche die Arbeiten auf dem Server erledigt.
-     maxSize                                      :    2048,                                        // Maximale Dateigroesse in Bytes.
+     //maxSize                                      :    2048,                                        // Maximale Dateigroesse in Bytes.
+     maxSize                                      :    300*1024*1024,                                        // Chunks of 300 MB
 		 maxTime                                      :    60,                                        // Maximale Uploadzeit in Sekunden.
 		 allowedFileTypes                             :    new Array(),        					// Zugelassene MIME-Types.
      Container                                    :    document.getElementsByTagName('body')[0],    // Das Element in dem die Darstellungen angezeigt werden sollen.
@@ -264,7 +265,8 @@ var HTML5FileUpload =
           this.http.send('Action=getServerConfig');
 
           var xml                                 =    this.http.responseXML;
-          this.maxSize                            =    xml.getElementsByTagName('MaxFileSize')[0].firstChild.nodeValue;
+          // Nope - don't load from server config. Those would be very large chunks.
+          //this.maxSize                            =    xml.getElementsByTagName('MaxFileSize')[0].firstChild.nodeValue;
 					this.maxTime                            =    xml.getElementsByTagName('MaxInputTime')[0].firstChild.nodeValue;
 					var mime                                =    xml.getElementsByTagName('MIME-Type');
 
