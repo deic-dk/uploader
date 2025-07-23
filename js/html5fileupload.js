@@ -106,7 +106,10 @@ var HTML5FileUpload =
                dst.className                      =    'HTML5FileUpload_text';
                dst.value                          =    '';
                dst.placeholder                    =    t('uploader', 'Folder');
-               this.Container.appendChild(document.createTextNode(t('uploader', 'Upload destination')+': '));
+               var descr = document.createElement('span');
+               descr.innerText = t('uploader', 'Upload destination')+' ⓘ : ';
+               descr.setAttribute('title', 'Optional target folder. If left unspecified, files will be stored in the home root folder.');
+               this.Container.appendChild(descr);
                this.Container.appendChild(dst);
                $('#group_folder').appendTo( this.Container);
 
