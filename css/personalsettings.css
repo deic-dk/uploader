@@ -1,0 +1,12 @@
+#uploader_group_folder {
+  height: 31px;
+}
+
+label.btn.uploader_choose_download_folder {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ccc;
+  margin-bottom: 4px;
+  margin-left: 3px;
+  margin-right: 6px;
+}

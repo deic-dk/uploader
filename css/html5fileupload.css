@@ -24,6 +24,9 @@
      background                                   :    rgba(0,0,0,0.04);
 		 color                                        :    rgba(0,0,0,0.5);
 }
+.HTML5FileUpload_DropBox:hover {
+	border                                       :    2px solid rgba(0,0,0,0.3);
+}
 .HTML5FileUpload_DropBox1
      {
 			 display: table-cell;
@@ -206,11 +209,26 @@ tr:hover .HTML5FileUpload_Cancel
 
      }
 
-.HTML5FileUpload_Button
-		{
-			float: right;
-		}
+.HTML5FileUpload_Button {
+	float: right;
+	position: relative;
+	right: 10%;
+	top: 47px;
+}
 
+.uploader_share .HTML5FileUploadShare_Button {
+  float: right;
+  position: relative;
+  /*right: 10%;
+  top: 2px;*/
+  display: none;
+}
+.uploader_share .HTML5FileUploadShare {
+	float: right;
+	position: absolute;
+	left: 220px;
+	top: 12px;
+}
 
 table th .columntitle {
 	display: block;
@@ -230,4 +248,92 @@ table th .columntitle {
   margin-left: 36px;
 }
 
+label.btn.uploader_choose_download_folder {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ccc;
+	margin-bottom: 4px;
+	margin-left: 3px;
+	margin-right: 6px;
+}
+
+
+.uploader_share_meta {
+  margin-top: 10px;
+  display: none;
+}
+
+.uploader_share_meta input[type="checkbox"] {
+	margin-top: 0;
+}
+
+#HTML5FileUpload_destdir {
+  margin-left: 4px;
+}
+
+#toggle_recipients, #toggle_target_folder {
+	cursor: pointer;
+}
+
+.target_folder, label.target_folder.uploader_choose_download_folder {
+	display: none;
+}
+
+#uploader_recipients {
+	width: 280px;
+}
+
+#expirationDate, #linkPassText {
+	display: none;
+	width: 160px;
+}
+
+.info {
+	cursor: help;
+}
+
+.uploader_share span {
+	margin-right: 4px;
+}
+
+#shareCheckbox {
+	margin-bottom: 5px;
+}
+
+#uploader_group_folder {
+	height: 31px;
+}
+
+#HTML5FileUpload_Tbl {
+	width: 91%;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.uploader_share {
+	border-color: #b6b6b6;
+	border-width: 1px;
+	border-style: solid;
+	padding: 11px;
+	width: 90%;
+	margin-top: 10px;
+}
+
+input#expirationDate {
+	top: 1px;
+  position: relative;
+}
+
+.linkIcon {
+	margin-top: 4px;
+	margin-right: 8px;
+	margin-left: 8px;
+	height: 16px;
+}
+
+.FileName, .FileSize {
+	margin-left: 24px;
+}
 

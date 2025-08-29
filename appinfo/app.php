@@ -2,6 +2,7 @@
 
 namespace OCA\Uploader;
 
+\OCP\App::registerPersonal('uploader', 'personalsettings');
 
 \OCP\App::addNavigationEntry( array(
 	
@@ -24,3 +25,14 @@ namespace OCA\Uploader;
 	'name' => \OC_L10N::get('uploader')->t('Upload')
 	
 ));
+
+\OC::$CLASSPATH['Uploader_Activity'] ='apps/uploader/activity.php';
+\OC::$server->getActivityManager()->registerExtension(function() {
+	return new \Uploader_Activity(
+			\OC::$server->query('L10NFactory'),
+			\OC::$server->getURLGenerator(),
+			\OC::$server->getActivityManager(),
+			\OC::$server->getConfig()
+			);
+});
+	

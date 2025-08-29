@@ -10,7 +10,7 @@
 		<done>Upload abgeschlossen</done>
 		<max_part_size>max. Teil-Dateigröße</max_part_size>
 		<max_input_time>Max upload-zeit</max_input_time>
-		<notification_title>ownCloud - Large File Upload</notification_title>
+		<notification_title>Large File Upload</notification_title>
 		<notification_body_done>Upload abgeschlossen</notification_body_done>
 		<error_no_html5>Mit Ihrem Browser ist ein HTML5-Dateiupload nicht möglich!</error_no_html5>
 	</Translation>
