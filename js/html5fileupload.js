@@ -167,6 +167,9 @@ var HTML5FileUpload = {
 		div1.className = 'HTML5FileUpload_DropBox1';
 		var div2 = div1.appendChild(document.createElement('div'));
 		div2.appendChild(document.createTextNode(this.lang['drag_drop']));
+		var div3 = div1.appendChild(document.createElement('div'));
+		div3.appendChild(document.createTextNode(this.lang['upload']));
+		div3.className = 'HTML5FileUpload_SmallText';
 		var p = document.createElement('p');
 		p.className = 'HTML5FileUpload_Link';
 		div.appendChild(p);

@@ -7,6 +7,7 @@
 		<btn_reset>Clear</btn_reset>
 		<btn_remove>Remove</btn_remove>
 		<drag_drop>Drop files here</drag_drop>
+    <upload>then click upload</upload>
 		<done>Upload done</done>
 		<max_part_size>File chunk size</max_part_size>
 		<max_input_time>Max upload time per chunk</max_input_time>
