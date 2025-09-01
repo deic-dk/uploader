@@ -178,7 +178,7 @@ var HTML5FileUpload = {
 		this.Container.appendChild(document.createElement('br'));
 		// Maximale Dateigroesze anzeigen.
 		var span = document.createElement('span');
-		span.className = 'HTML5FileUpload_MaxFileSize';
+		span.className = 'HTML5FileUpload_SmallText';
 		span.appendChild(document.createTextNode(this.lang['max_part_size'] + ': ' + this.fileSize(this.maxSize) + ', ' + this.lang['max_input_time'] + ': ' + this.maxTime + ' s'));
 		this.Container.appendChild(span);
 		span = null;

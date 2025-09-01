@@ -41,6 +41,14 @@
 			?>
 	</select>
 	<div id="upload_folder" dir="<?php echo($_['upload_folder']);?>"></div>
-
 </div>
+
+<div id="HTML5FileUpload_information">
+<span class="app_information">This service allows ScienceData users, in a controlled and secure environment, to send large files to specific recipients - both  other users and externals. Simply drag and drop files on the box above, click "upload", fill in the recpients' email addresses and click "Share".</span>
+<br /><br />
+<span class="app_information">If you're sharing movies/MP4 files, you may want to first <a href="/sites/videotrim/" target="_blank">trim</a> them and/or <a href="<?php echo(OC::$WEBROOT);?>/index.php/apps/batch/">scale</a> them down in size.</span>
+<br /><br />
+<span class="app_information">The service is available to all ScienceData users - who are imposed no limits on file sizes beyond those imposed by your Internet connection and their quota (which can be lifted for datasets of generic interest).</span>
+</div>
+
 </div>

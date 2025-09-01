@@ -1,4 +1,4 @@
-.HTML5FileUpload_MaxFileSize
+.HTML5FileUpload_SmallText
      {
 
      font-size                                    :    0.8em;
@@ -336,4 +336,12 @@ input#expirationDate {
 .FileName, .FileSize {
 	margin-left: 24px;
 }
+
+#HTML5FileUpload_information {
+	width: 90%;
+	display: none;
+}
+
+
+
 

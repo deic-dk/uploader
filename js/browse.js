@@ -322,19 +322,11 @@ $(document).ready(function(){
 	var searchParams = new URLSearchParams(window.location.search);
 	if(searchParams.has('filetransfer') && searchParams.get('filetransfer')!=='false'){
 		if($('ul.nav-sidebar li#places span i.icon-angle-down').is(':visible')){
-			$('ul.nav-sidebar li[data-id^="internal-bookmarks"], li[data-id="files_index"], li[data-id="trash"], li[data-id^="sharing_"], li[data-id^="user-groups_"], li[data-id^="owned-group-folders_"], li[data-id="storage"]').toggle('fast','linear');
-			$('ul.nav-sidebar li#places span i').toggleClass('hidden');
+			$('#places .icon-angle-down:visible').first().click();
 		}
-		if($('ul.nav-sidebar li#apps span i.icon-angle-up').is(':visible')){
-			$('ul.nav-sidebar li').not('.head, [data-id^="tag-"], [data-id^="internal-bookmarks"], [data-id="files_index"], [data-id="trash"], [data-id^="sharing_"], li[data-id^="user-groups_"], li[data-id^="owned-group-folders_"], li[data-id="storage"]').toggle('fast','linear');
-			$('ul.nav-sidebar li#apps span i').toggleClass('hidden');
-			if($('ul.nav-sidebar li#apps span i.icon-angle-down').is(":visible")){
-				createCookie('OCapps','expanded','365');
-			}
-			else {
-				createCookie('OCapps','collapsed','365');
-			}
-		}
+		// Show info
+		$('#content.app-uploader').append($('#HTML5FileUpload_information'));
+		$('#HTML5FileUpload_information').show();
 	}
 	
  });
