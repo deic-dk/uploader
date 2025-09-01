@@ -21,7 +21,7 @@ class Util {
 		list($htmlMail, $alttextMail) = self::createMailBody($filenames, $links, $expiration, $userRealName);
 		$rs = explode(' ', $recipient);
 		$failed = array();
-		foreach ($rs as $r) {
+		foreach($rs as $r){
 			try {
 				\OCP\Util::writeLog('uploader', 'Sending mail '.$systemEmail.'-->'.$r.'-->'.$subject.'-->'.$htmlMail, \OC_Log::WARN);
 				\OC_MAIL::send($r, $r, $subject, $htmlMail, $systemEmail, $userRealName, 1, $alttextMail, '', '', '', $userEmail);

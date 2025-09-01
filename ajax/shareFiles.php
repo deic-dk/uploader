@@ -28,7 +28,7 @@ if($require_login===true){
 	foreach($fileids as $fileid){
 		\OCP\Util::writeLog('uploader', 'Sharing with restricted group '.$fileid, \OC_Log::WARN);
 		if(\OCP\App::isEnabled('files_sharding')){
-			return \OCA\Files\Share_files_sharding\Api::shareItem('file', $fileid, \OCP\Share::SHARE_TYPE_GROUP,
+			\OCA\Files\Share_files_sharding\Api::shareItem('file', $fileid, \OCP\Share::SHARE_TYPE_GROUP,
 					$restrictedGroup, \OCP\PERMISSION_READ);
 		}
 		elseif(empty($alreadySharedItem)){
@@ -64,10 +64,11 @@ if(!empty($data['notify_on_download'])){
 }
 
 if(!empty($recipient)){
+	\OCP\Util::writeLog('uploader', 'Sending mail to '.$recipient, \OC_Log::WARN);
 	$res['errors'] = \OCA\Uploader\Util::sendLinkShareMail($recipient, $filenames, $links, $expiration);
 }
 $res['fileids'] = $fileids;
-$res['message'] = 'Files shared';
+$res['message'] = 'File'.(count($filenames)>1?'s':'').' shared';
 OCP\JSON::encodedPrint($res);
 
 ?>

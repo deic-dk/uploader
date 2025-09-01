@@ -162,9 +162,10 @@ if(!isLastElement){
 				data: jsonData,
 				async:false,
 				success:function(s){
+					OC.dialogs.alert(t('core', 'Your file'+(myData.filenames.length>1?'s have ':' has ')+'been shared'+(myData.recipient?(' and a link sent to'+myData.recipient):'')+'!'), s.message);
 				},
 				error:function(s){
-					OC.dialogs.alert(result.data.message, t('core', 'Error while sharing'));
+					OC.dialogs.alert(s.message, t('core', 'Error while sharing'));
 				}
 	});
 }

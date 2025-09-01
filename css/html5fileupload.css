@@ -340,6 +340,7 @@ input#expirationDate {
 #HTML5FileUpload_information {
 	width: 90%;
 	display: none;
+	margin-top: 24px;
 }
 
 
