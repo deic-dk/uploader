@@ -24,7 +24,7 @@
      background                                   :    rgba(0,0,0,0.04);
 		 color                                        :    rgba(0,0,0,0.5);
 }
-.HTML5FileUpload_DropBox:hover {
+.HTML5FileUpload_DropBox:hover, .HTML5FileUpload_DropBoxHover {
 	border                                       :    2px solid rgba(0,0,0,0.3);
 }
 .HTML5FileUpload_DropBox1

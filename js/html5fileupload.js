@@ -165,11 +165,9 @@ var HTML5FileUpload = {
 		div.className = 'HTML5FileUpload_DropBox';
 		var div1 = div.appendChild(document.createElement('div'));
 		div1.className = 'HTML5FileUpload_DropBox1';
-		var div2 = div1.appendChild(document.createElement('div'));
-		div2.appendChild(document.createTextNode(this.lang['drag_drop']));
-		var div3 = div1.appendChild(document.createElement('div'));
-		div3.appendChild(document.createTextNode(this.lang['upload']));
-		div3.className = 'HTML5FileUpload_SmallText';
+		div1.appendChild(document.createTextNode(this.lang['drag_drop']));
+		div1.addEventListener('dragleave', this.handleDragLeave, false);
+		div1.addEventListener('dragenter', this.handleDragEnter, false);
 		var p = document.createElement('p');
 		p.className = 'HTML5FileUpload_Link';
 		div.appendChild(p);
@@ -240,6 +238,18 @@ var HTML5FileUpload = {
 		evt.stopPropagation();
 		evt.preventDefault();
 		evt.dataTransfer.dropEffect = 'copy';
+	},
+	handleDragEnter: function(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+		$('.HTML5FileUpload_DropBox').addClass('HTML5FileUpload_DropBoxHover');
+		console.log("dragenter");
+	},
+	handleDragLeave: function(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
+		$('.HTML5FileUpload_DropBox').removeClass('HTML5FileUpload_DropBoxHover');
+		console.log("dragleave");
 	},
 	// Datein werden ueber der 'Dropbox' gehen gelassen.
 	handleDrop: function(evt) {
