@@ -80,9 +80,9 @@ class Util {
 			\OCP\Util::writeLog('files_sharing', \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 			return false;
 		}
-		\OCP\Util::writeLog('files_sharing', 'Checking if restricted: '.$sql.':'.$fileID.':'.\OCP\Share::SHARE_TYPE_GROUP.':'.$restrictedGroup, \OCP\Util::WARN);
+		\OCP\Util::writeLog('files_sharing', 'Checking if restricted: '.$sql.':'.$fileID.':'.\OCP\Share::SHARE_TYPE_GROUP.':'.$restrictedGroup, \OCP\Util::INFO);
 		if($share = $result->fetchRow()){
-			\OCP\Util::writeLog('files_sharing', 'Restricted...', \OCP\Util::WARN);
+			\OCP\Util::writeLog('files_sharing', 'Restricted...'.$fileID, \OCP\Util::WARN);
 			return $share;
 		}
 		return false;
