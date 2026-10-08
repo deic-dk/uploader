@@ -88,7 +88,7 @@ class Util {
 		return false;
 	}
 	
-	function activityNotify($path, $owner, $user){
+	public static function activityNotify($path, $owner, $user){
 		$filename = basename($path);
 		$dirname = dirname($path);
 		$ip = $_SERVER['REMOTE_ADDR'];
