@@ -56,7 +56,7 @@ class Util {
 		return array($htmlMail, $alttextMail);
 	}
 	
-	function checkRestrictedShare($fileID) {
+	public function checkRestrictedShare($fileID) {
 		if(!\OCP\App::isEnabled('files_sharding') || \OCA\FilesSharding\Lib::isMaster()){
 			$result = self::dbCheckRestrictedShare($fileID);
 		}
